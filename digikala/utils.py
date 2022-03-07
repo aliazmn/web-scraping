@@ -84,7 +84,6 @@ def get_detail_url(web_page : str) -> None:
         if "dkp" in product["href"]:
            result = get_product_detail(product["href"])
            yield result
-           break
         else :
             continue
         
