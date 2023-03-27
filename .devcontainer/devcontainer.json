@@ -1,0 +1,32 @@
+{
+  // image being used
+   "image": "mcr.microsoft.com/devcontainers/universal:2",
+  // set minimum cpu
+   "hostRequirements": {
+       "cpus": 4
+   },
+   // install dependencies and start app
+   "updateContentCommand": {"dep": "pip install -r requirements.txt","mkae" : "python3 manage.py makemigrations" , "migrate" : "python3 manage.py migrate"},
+   "postAttachCommand": "python3 manage.py runserver",
+   // open app.tsx once container is built
+   "customizations": {
+       // install some vscode extensions
+       "vscode": {
+           "extensions": [
+               "dbaeumer.vscode-eslint",
+               "github.vscode-pull-request-github",
+               "eamodio.gitlens",
+               "christian-kohler.npm-intellisense"
+           ]
+       }
+   },
+   // connect to remote server
+   "forwardPorts": [8000],
+   // give port a label and open a preview of the app
+   "portsAttributes": {
+      "8000": {
+         "label": "Application",
+         "onAutoForward": "openPreview"
+       }
+     }
+}
